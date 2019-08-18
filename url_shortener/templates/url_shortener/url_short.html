@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="ufc-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+      <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <link rel="stylesheet" href="{% static 'url_shortener/main.css' %}">
+      <title>ShortURL.com - shorten that long url</title>
+       </head>
+        
+  <body>
+  	
+      <header class="site-header">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="/">ShortURL.com</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="#">Home</a>
+              <a class="nav-item nav-link" href="#example">Example</a>
+              <a class="nav-item nav-link" href="#termsofuse">Terms of Use</a>
+            </div>
+            
+            </div>         
+          </div>      
+        </div>
+      </nav>
+</header>
+
+
+  <main class="container">
+      <h3>Welcome to ShortURL!</h3>
+	<p>Are you sick of posting URLs in emails only to have it break when sent causing the recipient to have to cut and paste it back together? Then you've come to the right place. By entering in a URL in the text field below, we will create a tiny URL that will not break in email postings and never expires.</p>
+
+      <form action="#" method="POST">
+      <div class="form-group">
+      <div class="input-group">
+	<div class="container">
+	{% csrf_token %}
+	{{ form }}
+    <p><strong>Enter long url that you want to short:</strong></p>
+	</div> 
+   <input type="text" class="form-control" placeholder="Enter url you want to short">
+	
+	<div class="container">
+	<p><strong>Custom shorturl(optional):</strong></p>
+	</div>
+	https://shorturl.com/
+    <input type="text" class="form-control" placeholder="eg. https://shorturl.com/yourname">
+ 
+        </div>
+	<button type="submit" value="submit" class="btn btn-success">Submit</button>
+
+        </div>
+      </form>
+	<h3 id="example">A Example</h3>
+	<p>ShortURL will take this URL:<br>
+
+http://www.amazon.com/Kindle-Wireless-Reading-Display-Globally/dp/B003FSUDM4/ref=amb_link_353259562_2?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=center-10&pf_rd_r=11EYKTN682A79T370AM3&pf_rd_t=201&pf_rd_p=1270985982&pf_rd_i=B002Y27P3M<br>
+ </p>And shorten into this:<br>
+<p>http://tinyurl.com/KindleWireless</p>
+ 
+	<h3 id="termsofuse">Terms of use</h3>
+	<p>ShortURL was created as a free service to make posting long URLs easier, and may only be used for actual URLs. Using it for spamming or illegal purposes is forbidden and any such use 
+will result in the ShortURL being disabled and you may be reported to all ISPs involved and to the proper governmental agencies. 
+This service is provided without warranty of any kind.</p>
+</main>
+  <nav class="navbar navbar-expand-lg navbar-dark ">
+    <footer class="container ">
+	<div class="nav-text text-white">Copyright &copy; 2019 <strong>ShortURL.com</strong></div>
+    </footer>
+    </nav>
+  
+         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="//cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
+   
+  </body>
+</html>
+ 
