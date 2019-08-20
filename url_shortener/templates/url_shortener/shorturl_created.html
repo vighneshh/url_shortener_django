@@ -1,4 +1,14 @@
 {% extends 'url_shortener/base.html' %}
+{% block title %}
+  <title>Url was created!</title>
+{% endblock title %}
 {% block content %}
-Done.
+<p>The following URL:<br> 
+ <strong>  {{ mainurl }} </strong><br>
+has a length of 21 characters and resulted in the following ShortURL which has a length of 23 characters:<br>
+ <strong>https://shorturl.com/{{ shortname }} </strong>
+
+You can open this link in new window <a href="https://shorturl/{{ shortname }}" target="_blank">here</a>. or copied to your clipboard.
+
+</p>
 {% endblock content %}

@@ -5,6 +5,7 @@ from .forms import UrlForm
 import string
 import random
 
+
 def RedirectShorturl(request, shortname):
     try:
         url = Url.objects.get(shortname=shortname)
@@ -20,14 +21,17 @@ def GetUrls(request):
             shortname = form.cleaned_data['CustomUrl']
             if shortname == '':
                 shortname = generator()
-                url = Url(url=form.cleaned_data['MainUrl'],shortname=shortname)
+                mainurl = form.cleaned_data['MainUrl']
+                url = Url(url=mainurl,shortname=shortname)
                 url.save()
-                return render(request,'url_shortener/shorturl_created.html')
+                messages.success(request,'ShortUrl was Created!')
+                return render(request,'url_shortener/shorturl_created.html',{'mainurl' : mainurl,'shortname' : shortname,})
             else:
                 try:
                     url = Url(url=form.cleaned_data['MainUrl'],shortname=shortname)
                     url.save()
-                    return render(request,'url_shortener/shorturl_created.html')
+                    messages.success(request,'ShortUrl was Created!')
+                    return render(request,'url_shortener/shorturl_created.html',{'mainurl' : form.cleaned_data['MainUrl'],'shortname' : shortname,})
                 except:
                     messages.info(request,'Url is already taken. Try with different name.')
                     return redirect('home')
